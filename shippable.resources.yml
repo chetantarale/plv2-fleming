@@ -29,3 +29,21 @@ resources:
     pointer:
       sourceName : "default"
       region: "us-west-2"
+
+  - name: flecs-dopts5
+    type: dockerOptions
+    version:
+      links:
+        - "fl-image7workingdir"
+      volumesFrom:
+        - "fl-image7workingdir:ro"
+      user: "driftking"
+      workingDir: "/makemeworking"
+      cmd:
+        - "node"
+        - "job.js"
+      logConfig:
+        type: "json-file"
+        options:
+          max-size: 50m
+      network : "bridge"
