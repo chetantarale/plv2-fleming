@@ -27,5 +27,5 @@ resources:
     type: cluster
     integration: testCL
     pointer:
-      sourceName : "testCL"
+      sourceName : "default"
       region: "us-west-2"
