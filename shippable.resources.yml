@@ -25,7 +25,7 @@ resources:
 
   - name: fl-ecscluster
     type: cluster
-    integration: plv2-ecs
+    integration: testCL
     pointer:
       sourceName : "testCL"
       region: "us-west-2"
