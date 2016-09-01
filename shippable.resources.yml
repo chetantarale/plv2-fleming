@@ -30,7 +30,7 @@ resources:
       sourceName : "default"
       region: "us-west-2"
 
-  - name: flecs-dopts5
+  - name: extdoptecs-dopts5
     type: dockerOptions
     version:
       links:
