@@ -1,31 +1,21 @@
-resources:
-  - name: fl-image1
-    type: image
-    integration: dockerhub
-    pointer:
-      sourceName: "library/nginx"
-    seed:
-      versionName: "latest"
-  
-  - name: fl-image2
-    type: image
-    integration: dockerhub
-    pointer:
-      sourceName: "library/nginx"
-    seed:
-      versionName: "latest"
+jobs:
+  - name: fl-manifest1
+    type: manifest
+    steps:
+      - IN: fl-image1
 
-  - name: fl-image7workingdir
-    type: image
-    integration: dockerhub
-    pointer:
-      sourceName: "library/nginx"
-    seed:
-      versionName: "latest"
+  - name: fl-manifest2multiimg
+    type: manifest
+    steps:
+      - IN: fl-image2
+      - IN: fl-image7workingdir
+        applyTo:
+          - fl-image2
 
-  - name: fl-ecscluster
-    type: cluster
-    integration: ecsTest
-    pointer:
-      sourceName : "testCL"
-      region: "us-west-2"
+  - name: fl-ecsdeploybg1
+    type: deploymanifest1
+    steps:
+      - IN: fl-manifest1
+      - IN: fl-manifest2multiimg
+        switch: off
+      - IN: fl-ecscluster
