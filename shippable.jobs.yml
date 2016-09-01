@@ -28,8 +28,7 @@ jobs:
       - IN: extdoptecs-dopts5
         applyTo:
           - fl-image2
-      - IN: extdopt-tg2
-      
+
   - name: extdopt-ecsdeployept
     type: deploy
     steps:
