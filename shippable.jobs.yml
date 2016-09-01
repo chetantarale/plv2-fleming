@@ -13,7 +13,7 @@ jobs:
           - fl-image2
 
   - name: fl-ecsdeploybg1
-    type: deploymanifest1
+    type: deploy
     steps:
       - IN: fl-manifest1
       - IN: fl-manifest2multiimg
