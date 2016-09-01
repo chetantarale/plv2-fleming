@@ -19,3 +19,19 @@ jobs:
       - IN: fl-manifest2multiimg
         switch: off
       - IN: fl-ecscluster
+
+  - name: extdopt-manifest2multiimg
+    type: manifest
+    steps:
+      - IN: fl-image2
+      - IN: fl-image7workingdir
+      - IN: extdoptecs-dopts5
+        applyTo:
+          - fl-image2
+      - IN: extdopt-tg2
+      
+  - name: extdopt-ecsdeployept
+    type: deploy
+    steps:
+      - IN: extdopt-manifest2multiimg
+      - IN: fl-ecscluster
