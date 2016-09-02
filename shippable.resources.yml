@@ -46,4 +46,3 @@ resources:
         type: "json-file"
         options:
           max-size: 50m
-      network : "bridge"
